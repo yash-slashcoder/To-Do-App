@@ -1,4 +1,333 @@
 body {
   margin: 0;
   text-align: center;
+  background-color: #df61ff;
+}
+
+/* To do holder  */
+.to-do-holder {
+  position: relative;
+  width: 4%;
+  height: 30px;
+  margin: 20px auto;
+  border: 3px solid #3b2a46;
+  border-radius: 15px 15px 0px 0px;
+  color: #d9c7e7;
+  background: #e1c55b;
+  z-index: 2;
+}
+
+/*  Create hole in the holder */
+.to-do-holder::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 22%;
+  left: 32%;
+  margin: auto;
+  border-radius: 50%;
+  padding-bottom: 25%;
+  border: solid 3px #3b2a46;
+  width: 13px;
+  overflow: hidden;
+}
+
+/* To do pin */
+.to-do-pin {
+  position: relative;
+  width: 8rem;
+  height: 25px;
+  margin: 20px -40px;
+  border: 3px solid #3b2a46;
+  border-radius: 8px 8px 20px 20px;
+  color: #d9c7e7;
+  background: #e1c55b;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.to-do-pin::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 22%;
+  left: 32%;
+  margin: auto;
+  width: 3rem;
+  border: solid 1px #3b2a46;
+}
+
+/* to do paper */
+.to-do-paper {
+  position: relative;
+  width: 60%;
+  height: auto;
+  border: 3px solid #3b2a46;
+  margin: -20px auto;
+  background: #d3eaff;
+  margin-bottom: 20px;
+}
+
+/* To do name */
+.to-do-paper h3 {
+  font-size: 2rem;
+  font-family: monospace;
+  font-weight: 900;
+  color: #3b2a46;
+  text-decoration: underline;
+  text-decoration-color: #7d2bc8;
+}
+
+/* Todo form */
+#todo {
+  width: 96%;
+  height: 35%;
+  border: 1px groove lightgoldenrodyellow;
+  margin: auto;
+  border-radius: 8px;
+  background-color: #ffebe9;
+}
+
+.inline {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  text-align: left;
+  padding: 0 1rem;
+}
+
+/* To do header */
+#todo h3 {
+  font-size: 1.5rem;
+  font-family: cursive;
+  font-weight: 600;
+  color: #3f2a74;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+#todo label {
+  font-family: cursive;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* Form input class */
+.form-input {
+  width: 85%;
+  margin: auto;
+}
+
+/* common input style */
+.input {
+  border: none;
+  outline: none;
+  font-size: 0.8rem;
+  padding: 10px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+  margin: 10px 0;
+}
+
+/* input group style for category and date */
+.input-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 25px;
+}
+
+/* Text area css */
+#todo textarea {
+  overflow: hidden;
+  resize: none;
+}
+
+.desc {
+  margin-bottom: 15px;
+}
+
+.category {
+  width: 50%;
+}
+
+.due-date {
+  width: 50%;
+}
+
+/* Create task and delete tasks css */
+.todo-button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin: 25px auto;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.todo-button button {
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: white;
+  font-family: system-ui;
+  border: none;
+  box-shadow: 2px 5px 5px #141942;
+}
+
+/* For create task */
+.todo-button button[type='submit'] {
+  background-color: #3b2a46;
+}
+
+/* For delete task */
+.todo-button button[type='reset'] {
+  background-color: #f44336;
+}
+
+.todo-button button i {
+  margin-right: 10px;
+}
+
+/* Task list */
+.task-list {
+  width: 96%;
+  margin: auto;
+  /* background-color: #eb795f; */
+  margin-bottom: 20px;
+}
+
+.task-list hr {
+  margin: 0;
+}
+
+/* Common Tasks list css   */
+.tasks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  text-align: center;
+  justify-content: left;
+  align-items: baseline;
+  padding: 8px;
+}
+
+/* Task Checkbox css */
+.tasks input[type='checkbox'] {
+  position: relative;
+  cursor: pointer;
+}
+
+.tasks input[type='checkbox']:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 0;
+  left: 0;
+  border: 2px solid #7d2bc8;
+  border-radius: 3px;
+  background-color: white;
+}
+
+.tasks input[type='checkbox']:checked:after {
+  content: '';
+  display: block;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 1px;
+  left: 5px;
+}
+
+/* Common p tag css */
+.tasks p {
+  margin: 0;
+  padding: 0;
+  color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* For description and date display css */
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20px;
+}
+
+/* description css */
+.details p:first-of-type {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+/* due date css */
+.details p:nth-child(2) {
+  font-size: 0.9rem;
+  color: #495057;
+}
+
+.details p:nth-child(2) i {
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+/* Category css */
+.task-category {
+  position: absolute;
+  right: 4%;
+  padding: 0.6rem;
+  border: 1px solid none;
+  border-radius: 5%;
+}
+
+.task-category p {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  font-family: cursive;
+  font-weight: bold;
+  color: white;
+}
+
+.personal {
+  background-color: #8ca52a;
+}
+
+.work {
+  background-color: #702aa5;
+}
+
+.workout {
+  background-color: #0c1b36;
+}
+
+.sports {
+  background-color: #a5a12a;
+}
+
+.entertainment {
+  background-color: #a52a5d;
+}
+
+.goals {
+  background-color: #d31212;
+}
+
+/* strike description and due date on task checked */
+.tasks input[type='checkbox']:checked ~ .details {
+  text-decoration: line-through;
+  opacity: 0.5;
 }

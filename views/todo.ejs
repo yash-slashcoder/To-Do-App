@@ -1,1 +1,78 @@
-<h4>To Do App</h4>
+<!-- To do holder -->
+<div class="to-do-holder">
+  <div class="to-do-pin"></div>
+</div>
+<!-- To do paper -->
+<div class="to-do-paper">
+  <!-- To do heading -->
+  <h3>TO-DO App</h3>
+  <!-- Start Todo Form -->
+  <form action="/create-todo" method="POST">
+    <div id="todo">
+      <h3>Let's Plan your day</h3>
+      <div class="form-input">
+        <!-- Description -->
+        <div class="desc inline">
+          <label for="description">Description</label>
+          <textarea
+            class="input"
+            rows="2"
+            name="description"
+            placeholder="What do you need to do?"
+            required
+          ></textarea>
+        </div>
+        <!-- Category select -->
+        <div class="input-group">
+          <div class="category inline">
+            <label for="category">Category</label>
+            <select class="input" name="category" id="categories" required>
+              <% for(var i=0; i < categories.length; i++) { %>
+              <option value="<%= categories[i] %>"><%= categories[i] %></option>
+              <% } %>
+            </select>
+          </div>
+          <!-- Datepicker -->
+          <div class="due-date inline">
+            <label for="duedate">Due Date</label>
+            <input
+              id="duedate"
+              class="input"
+              name="duedate"
+              type="date"
+              placeholder="dd/mm/yyyy"
+              required
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Add task & Delete task -->
+    <div class="todo-button">
+      <button type="submit"><i class="fas fa-plus"></i>Add Task</button>
+      <button type="reset" onclick="DeleteTask()">
+        <i class="fas fa-trash"></i>Delete Tasks
+      </button>
+    </div>
+  </form>
+  <!-- End Todo Form -->
+  <!-- Task List -->
+  <div class="task-list">
+    <% for(let task of task_list) {%>
+    <hr />
+    <div class="tasks">
+      <!-- To do checkbox for delete task -->
+      <input type="checkbox" name="task" value="<%= task._id %> " />
+      <!-- Description and Date -->
+      <div class="details">
+        <p><%= task.description %></p>
+        <p><i class="fas fa-calendar-alt"></i><%= task.duedate %></p>
+      </div>
+      <!-- Category -->
+      <div class="task-category <%= task.category.toLowerCase() %>">
+        <p><%= task.category %></p>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>

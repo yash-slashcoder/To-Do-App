@@ -2,15 +2,21 @@
 const express = require('express');
 const app = express();
 const port = 8000;
-const expressLayout = require('express-ejs-layouts');
+
+// Declare express layouts
+const expressLayouts = require('express-ejs-layouts');
+
 // Import db connection
 const db = require('./config/mongoose');
+
+// use for query params
+app.use(express.urlencoded());
 
 // use static files
 app.use(express.static('./assets'));
 
 // use layouts
-app.use(expressLayout);
+app.use(expressLayouts);
 app.set('layout extractStyles', true);
 app.set('layout extractScripts', true);
 
